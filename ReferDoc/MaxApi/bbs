@@ -1,0 +1,12 @@
+
+GET
+http://news.maxjia.com
+/bbs/app/api/topic/index?lang=zh-cn&os_type=iOS&os_version=12.1.2&_time=1547728390&version=4.3.3&device_id=921EEDBD-4D6A-4254-963E-DE7F7DB3FB64&game_type=dota2&max__id=628604
+
+Geust mod
+GET /bbs/app/api/topic/index?lang=zh-cn&os_type=iOS&os_version=12.1.2&_time=1547734585&version=4.3.3&device_id=921EEDBD-4D6A-4254-963E-DE7F7DB3FB64&game_type=dota2&max__id=0 HTTP/1.1
+
+http://news.maxjia.com
+/bbs/app/api/topic/index?lang=zh-cn&os_type=iOS&os_version=12.1.2&_time=1547734585&version=4.3.3&game_type=dota2&max__id=0
+
+GET /bbs/app/link/list?&add_follow=true&lang=zh-cn&os_type=iOS&os_version=12.1.2&_time=1547735046&version=4.3.3&game_type=dota2&max__id=0&limit=20&offset=0&sort_type=1 HTTP/1.1

@@ -3,6 +3,10 @@
   "version": "1.0",
   "description": "DotaMax on chrome (Personal development). Can read max news and bbs.",
   "permissions": ["storage"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
   "manifest_version": 2,
   "browser_action": {
     "default_popup": "popup.html",

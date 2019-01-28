@@ -1,6 +1,21 @@
+<!DOCTYPE html>
 <html>
+  <head>
+    <title>Popup</title>
+    <meta charset="UTF-8">
+    <link href="popup.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="popup.js"></script>
+  </head>
   <body>
-    <h1>Max+</h1>
-    <iframe height="600" src="http://news.maxjia.com/bbs/app/api/web/share?link_id=3084289"></iframe>
+    <div id="header">
+      <h1>Max+</h1>
+      <span>←</span>
+      <span>refresh</span>
+    </div>
+    
+    <div id="artlist" role="main">
+    </div>
+    <iframe id="artframe" width="320" height="500" src=""></iframe>
   </body>
 </html>

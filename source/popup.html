@@ -3,18 +3,27 @@
   <head>
     <title>Popup</title>
     <meta charset="UTF-8">
-    <link href="popup.css" rel="stylesheet">
+    <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- BootStrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <link href="popup.css" rel="stylesheet">
     <script src="popup.js"></script>
   </head>
   <body>
-    <div id="header">
+    <div id="header" class="container-fluid">
       <h1>Max+</h1>
-      <span>←</span>
-      <span>refresh</span>
+      <span id="back" class="col-md-6">←</span>
+      <span id="refresh" class="col-md-6">refresh</span>
     </div>
     
-    <div id="artlist" role="main">
+    <div id="artlist" role="main" class="container">
     </div>
     <iframe id="artframe" width="320" height="500" src=""></iframe>
   </body>

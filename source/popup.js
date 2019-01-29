@@ -1,5 +1,11 @@
 $(function(){
   init();
+  
+  // back botton
+  $("#back").on("click", function(){
+    $('#artframe').attr('src', '');
+    switchToList();
+  });
 });
 
 function init(){
@@ -38,7 +44,16 @@ function addListenerToArtical(){
   $(".artical").on("click", function(){
     url = $(this).attr("src");
     $('#artframe').attr('src', url);
-    $("#artlist").hide();
-    $("#artframe").show();
+    switchToFrame();
   });
+}
+
+function switchToFrame() {
+  $("#artlist").hide();
+  $("#artframe").show();
+}
+
+function switchToList() {
+  $("#artlist").show();
+  $("#artframe").hide();
 }

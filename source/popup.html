@@ -3,19 +3,37 @@
   <head>
     <title>Popup</title>
     <meta charset="UTF-8">
-    <link href="popup.css" rel="stylesheet">
+    <!-- BootStrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    
+    <link href="popup.css" rel="stylesheet">
     <script src="popup.js"></script>
   </head>
   <body>
-    <div id="header">
+    <div id="header" class="container-fluid">
       <h1>Max+</h1>
-      <span>←</span>
-      <span>refresh</span>
+      <button id="back" class="btn btn-secondary btn-sm"><span class="glyphicon glyphicon-refresh">←</span></button>
+      <button id="refresh" class="btn btn-secondary btn-sm"><span class="fa fa-refresh"></span> Refresh</button>
     </div>
-    
-    <div id="artlist" role="main">
+    <div id="artlist" role="main" class="list-group">
+      <a id="artSample" href="#" class="artical list-group-item list-group-item-action" style="display: none;">
+        <div class="d-flex w-100 justify-content-between">
+          <h6 class="title mb-1">Title</h6>
+        </div>
+        <small><p class="description mb-1">description</p></<small>
+        <small class="text-muted d-flex justify-content-between align-items-center">
+          <!-- <img class="user_avartar" src="" width="20" height="20"></img> -->
+          <span class="username"></span>
+          <small class="modify_at text-muted"></small>
+          <span class="comment_num badge badge-info badge-pill">99</span>
+        </small>
+      </a>
     </div>
-    <iframe id="artframe" width="320" height="500" src=""></iframe>
+    <iframe id="artframe" width="320" height="500" src="" style="display: none;"></iframe>
   </body>
 </html>

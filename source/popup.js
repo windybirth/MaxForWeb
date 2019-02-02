@@ -1,12 +1,12 @@
 $(function(){
   init();
-  
+
   // back botton
   $('#back').on('click', function(){
     $('#artframe').attr('src', '');
     switchToList();
   });
-  
+
   $(function () {
     $('[data-toggle="tooltip"]').tooltip()
   })
@@ -58,7 +58,7 @@ function addArticalItem(key, item) {
   //articalItem.find('.user_avartar').prop('src', item.user.avartar);
   articalItem.find('.username').text(item.user.username);
   //articalItem.find('.modify_at').text(getTimestampBeforeStr(item.modify_at));
-  
+
   // append item to aritcal list
   $('#artlist').append(articalItem);
 }

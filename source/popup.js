@@ -1,19 +1,21 @@
 $(function(){
   init();
-
+  
   // back botton
   $('#back').on('click', function(){
     $('#artframe').attr('src', '');
     switchToList();
   });
-
+  
+  // refresh botton
+  $('#refresh').on('click', init);
+  
   $(function () {
     $('[data-toggle="tooltip"]').tooltip()
   })
 });
 
 function init(){
-  clearArtList();
   createArtList();
   switchToList();
 };
@@ -40,11 +42,6 @@ function callbackbbsList(data) {
   addListenerToArtical();
 }
 
-function clearArtList(){
-
-}
-
-
 function addArticalItem(key, item) {
 
   // clone item
@@ -55,10 +52,10 @@ function addArticalItem(key, item) {
   articalItem.find('.title').text(item.title);
   articalItem.find('.description').text(item.description);
   articalItem.find('.comment_num').text(item.comment_num);
-  //articalItem.find('.user_avartar').prop('src', item.user.avartar);
+  articalItem.find('.user_avartar').prop('src', item.user.avartar);
   articalItem.find('.username').text(item.user.username);
   //articalItem.find('.modify_at').text(getTimestampBeforeStr(item.modify_at));
-
+  
   // append item to aritcal list
   $('#artlist').append(articalItem);
 }

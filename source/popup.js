@@ -1,15 +1,15 @@
 $(function(){
   init();
-  
+
   // back botton
   $('#back').on('click', function(){
     $('#artframe').attr('src', '');
     switchToList();
   });
-  
+
   // refresh botton
   $('#refresh').on('click', init);
-  
+
   $(function () {
     $('[data-toggle="tooltip"]').tooltip()
   })
@@ -20,13 +20,12 @@ function init(){
   switchToList();
 };
 
-// artical list
+// Create artical list
 function createArtList(){
   var url = 'http://news.maxjia.com/bbs/app/link/list'
   var urlParamData = { game_type: "dota2", sort_type: "1", offset: "0" , limit: "50" };
   $.getJSON(url, urlParamData, callbackbbsList);
 }
-
 
 function callbackbbsList(data) {
   var items = [];
@@ -45,7 +44,7 @@ function callbackbbsList(data) {
 function addArticalItem(key, item) {
 
   // clone item
-  var articalItem = $('#artSample').clone();
+  var articalItem = $('#artModel').clone();
   // set item value
   articalItem.show();
   articalItem.prop('href', item.share_url);
@@ -54,10 +53,25 @@ function addArticalItem(key, item) {
   articalItem.find('.comment_num').text(item.comment_num);
   articalItem.find('.user_avartar').prop('src', item.user.avartar);
   articalItem.find('.username').text(item.user.username);
+  $.each(item.imgs, function(key, val) {
+    var rootDiv = articalItem.find('.list_imgs');
+    addListImg(key, val, rootDiv)
+    if (key > 0) {
+      return false;
+    }
+  });
   //articalItem.find('.modify_at').text(getTimestampBeforeStr(item.modify_at));
-  
+
   // append item to aritcal list
   $('#artlist').append(articalItem);
+}
+
+function addListImg(key, val, rootDiv) {
+  // clone img
+  var imgItem = $('#imgModel').clone();
+  imgItem.show();
+  imgItem.prop('src', val);
+  rootDiv.append(imgItem);
 }
 
 function getTimestampBeforeStr(timestamp) {

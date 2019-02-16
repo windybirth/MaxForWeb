@@ -10,7 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-    
+
     <link href="popup.css" rel="stylesheet">
     <script src="popup.js"></script>
   </head>
@@ -21,11 +21,14 @@
       <button id="refresh" class="btn btn-secondary btn-sm"><span class="fa fa-refresh"></span> Refresh</button>
     </div>
     <div id="artlist" role="main" class="list-group">
-      <a id="artSample" href="#" class="artical list-group-item list-group-item-action" style="display: none;">
+      <a id="artModel" href="#" class="artical list-group-item list-group-item-action" style="display: none;">
         <div class="d-flex w-100 justify-content-between">
           <h6 class="title mb-1">Title</h6>
         </div>
         <small><p class="description mb-1">description</p></<small>
+        <div class="list_imgs">
+          <img id="imgModel" class="list_img rounded img-fluid img-thumbnail" src="" width="50%" style="display: none;"></img>
+        </div>
         <small class="text-muted d-flex justify-content-between align-items-center">
           <div>
             <img class="user_avartar rounded-circle" src="" width="20" height="20"></img>

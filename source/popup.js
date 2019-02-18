@@ -22,7 +22,7 @@ function init(){
 
 // Create artical list
 function createArtList(){
-  var url = 'http://news.maxjia.com/bbs/app/link/list'
+  var url = 'https://news.maxjia.com/bbs/app/link/list'
   var urlParamData = { game_type: "dota2", sort_type: "1", offset: "0" , limit: "50" };
   $.getJSON(url, urlParamData, callbackbbsList);
 }

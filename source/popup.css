@@ -24,3 +24,8 @@ h1 {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
 }
+
+.list_img {
+  width: 50%;
+  max-width: 150px;
+}

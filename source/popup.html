@@ -15,13 +15,34 @@
     <script src="popup.js"></script>
   </head>
   <body>
+    <!-- header -->
     <div id="header" class="container-fluid">
-      <h1>Max+</h1>
-      <button id="back" class="btn btn-secondary btn-sm"><span class="glyphicon glyphicon-refresh">←</span></button>
-      <button id="refresh" class="btn btn-secondary btn-sm"><span class="fa fa-refresh"></span> Refresh</button>
+      <h1 class="col-sm">Max+</h1>
+      <div id="pageselector" class="btn-group btn-group-toggle col-sm mb-1" data-toggle="buttons">
+        <label class="btn btn-outline-secondary col-sm active">
+          <input type="radio" name="options" id="option1" autocomplete="off" > News
+        </label>
+        <label class="btn btn-outline-secondary col-sm">
+          <input type="radio" name="options" id="option2" autocomplete="off"> RPG
+        </label>
+        <label class="btn btn-outline-secondary col-sm">
+          <input type="radio" name="options" id="option3" autocomplete="off" checked> BBS
+        </label>
+      </div>
+      <div class="col-sm mb-1">
+        <button id="back" class="btn btn-secondary btn-sm"><span class="glyphicon glyphicon-refresh">←</span></button>
+        <button id="refresh" class="btn btn-secondary btn-sm"><span class="fa fa-refresh"></span> Refresh</button>
+      </div>
     </div>
+
+    <!-- body -->
     <div id="artlist" role="main" class="list-group">
-      <a id="artModel" href="#" class="artical list-group-item list-group-item-action" style="display: none;">
+
+    </div>
+
+    <!-- model -->
+    <div id="divModel" style="display: none;">
+      <a id="bbsModel" href="#" class="artical list-group-item list-group-item-action" style="display: none;">
         <div class="d-flex w-100 justify-content-between">
           <h6 class="title mb-1">Title</h6>
         </div>

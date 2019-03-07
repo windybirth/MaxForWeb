@@ -13,18 +13,35 @@ $(function(){
   $(function () {
     $('[data-toggle="tooltip"]').tooltip()
   })
+  
+  // change radio
+  $('#pageselector input[type=radio]').change( function() {
+    init();
+  });
 });
 
 function init(){
+  clearArtList();
   createArtList();
   switchToList();
 };
 
+// Delete contents of artical list
+function clearArtList(){
+  $('#artlist').empty();
+}
+
 // Create artical list
 function createArtList(){
-  var url = 'https://news.maxjia.com/bbs/app/link/list'
-  var urlParamData = { game_type: "dota2", sort_type: "1", offset: "0" , limit: "50" };
-  $.getJSON(url, urlParamData, callbackbbsList);
+  if($('#pageselector input[type=radio]:checked')[0].id === 'option3') {
+    var fqdn = 'https://news.maxjia.com';
+    var path = '/bbs/app/link/list';
+    var url = fqdn + path;
+    var urlParamData = { game_type: "dota2", sort_type: "1", offset: "0" , limit: "20" };
+    $.getJSON(url, urlParamData, callbackbbsList);
+  } else {
+    return;
+  }
 }
 
 function callbackbbsList(data) {
@@ -35,16 +52,16 @@ function callbackbbsList(data) {
     var share_url = val.share_url;
     var is_top = val.is_top;
     if(!!title && !!share_url && is_top != 1) {
-      addArticalItem(key, val);
+      addBBSItem(key, val);
     }
   });
   addListenerToArtical();
 }
 
-function addArticalItem(key, item) {
+function addBBSItem(key, item) {
 
   // clone item
-  var articalItem = $('#artModel').clone();
+  var articalItem = $('#bbsModel').clone();
   // set item value
   articalItem.show();
   articalItem.prop('href', item.share_url);
@@ -53,6 +70,7 @@ function addArticalItem(key, item) {
   articalItem.find('.comment_num').text(item.comment_num);
   articalItem.find('.user_avartar').prop('src', item.user.avartar);
   articalItem.find('.username').text(item.user.username);
+  /*
   $.each(item.imgs, function(key, val) {
     var rootDiv = articalItem.find('.list_imgs');
     addListImg(key, val, rootDiv)
@@ -60,6 +78,7 @@ function addArticalItem(key, item) {
       return false;
     }
   });
+  */
   //articalItem.find('.modify_at').text(getTimestampBeforeStr(item.modify_at));
 
   // append item to aritcal list

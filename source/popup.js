@@ -13,7 +13,7 @@ $(function(){
   $(function () {
     $('[data-toggle="tooltip"]').tooltip()
   })
-  
+
   // change radio
   $('#pageselector input[type=radio]').change( function() {
     init();
@@ -33,8 +33,19 @@ function clearArtList(){
 
 // Create artical list
 function createArtList(){
-  if($('#pageselector input[type=radio]:checked')[0].id === 'option3') {
-    var fqdn = 'https://news.maxjia.com';
+  radioVal = $('#pageselector input[type=radio]:checked').val();
+  var fqdn = 'https://news.maxjia.com';
+  if(radioVal === 'news') {
+    var path = '/maxnews/app/news/with/topics/authors';
+    var url = fqdn + path;
+    var urlParamData = { game_type: "dota2", offset: "0" , limit: "10" };
+    $.getJSON(url, urlParamData, callbackNews);
+  } else if(radioVal === 'rpg') {
+    var path = '/maxnews/app/news/with/topics/authors';
+    var url = fqdn + path;
+    var urlParamData = { tag: "rpg", game_type: "dota2", offset: "0" , limit: "20" };
+    $.getJSON(url, urlParamData, callbackNews);
+  } else if(radioVal === 'bbs') {
     var path = '/bbs/app/link/list';
     var url = fqdn + path;
     var urlParamData = { game_type: "dota2", sort_type: "1", offset: "0" , limit: "20" };
@@ -64,10 +75,12 @@ function addBBSItem(key, item) {
   var articalItem = $('#bbsModel').clone();
   // set item value
   articalItem.show();
+  articalItem.attr('id', 'bbs'+item.linkid);
   articalItem.prop('href', item.share_url);
   articalItem.find('.title').text(item.title);
   articalItem.find('.description').text(item.description);
-  articalItem.find('.comment_num').text(item.comment_num);
+  articalItem.find('.link_award_num').text(' ' + item.link_award_num);
+  articalItem.find('.comment_num').text(' ' + item.comment_num);
   articalItem.find('.user_avartar').prop('src', item.user.avartar);
   articalItem.find('.username').text(item.user.username);
   /*
@@ -85,6 +98,44 @@ function addBBSItem(key, item) {
   $('#artlist').append(articalItem);
 }
 
+// call back for news and rpg
+function callbackNews(data) {
+  var items = [];
+  //parse json data
+  $.each(data.result, function(key, val) {
+    var title = val.title;
+    var share_url = val.share_url;
+    if(!!title && !!share_url) {
+      addNewsItem(key, val);
+    }
+  });
+  addListenerToArtical();
+}
+
+function addNewsItem(key, item) {
+
+  // clone item
+  var articalItem = $('#newsModel').clone();
+  // set item value
+  articalItem.show();
+  articalItem.attr('id', 'news'+item.newsid);
+  articalItem.prop('href', item.share_url);
+  articalItem.find('.title').text(item.title);
+  articalItem.find('.click_num').text(' ' + item.click);
+  articalItem.find('.date').text(item.date);
+
+  // set Image
+  $.each(item.imgs, function(key, val) {
+    var imgItem = articalItem.find('#newsImg');
+    imgItem.prop('src', val);
+    return false;
+  });
+
+  // append item to aritcal list
+  $('#artlist').append(articalItem);
+}
+
+// common methods
 function addListImg(key, val, rootDiv) {
   // clone img
   var imgItem = $('#imgModel').clone();

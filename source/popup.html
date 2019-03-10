@@ -17,20 +17,20 @@
   <body>
     <!-- header -->
     <div id="header" class="container-fluid">
-      <h1 class="col-sm">Max+</h1>
-      <div id="pageselector" class="btn-group btn-group-toggle col-sm mb-1" data-toggle="buttons">
-        <label class="btn btn-outline-secondary col-sm active">
-          <input type="radio" name="options" id="option1" autocomplete="off" > News
+      <h1 class="col-sm" style="display: none;">Max+</h1>
+      <div id="pageselector" class="btn-group btn-group-toggle col-sm m-1" data-toggle="buttons">
+        <label class="btn btn-outline-secondary btn-sm col-sm active">
+          <input type="radio" name="options" id="option1" autocomplete="off" value="news" checked> News
         </label>
-        <label class="btn btn-outline-secondary col-sm">
-          <input type="radio" name="options" id="option2" autocomplete="off"> RPG
+        <label class="btn btn-outline-secondary btn-sm col-sm">
+          <input type="radio" name="options" id="option2" autocomplete="off" value="rpg"> RPG
         </label>
-        <label class="btn btn-outline-secondary col-sm">
-          <input type="radio" name="options" id="option3" autocomplete="off" checked> BBS
+        <label class="btn btn-outline-secondary btn-sm col-sm">
+          <input type="radio" name="options" id="option3" autocomplete="off" value="bbs"> BBS
         </label>
       </div>
       <div class="col-sm mb-1">
-        <button id="back" class="btn btn-secondary btn-sm"><span class="glyphicon glyphicon-refresh">←</span></button>
+        <button id="back" class="btn btn-secondary btn-sm"><span class="glyphicon glyphicon-refresh">← Back</span></button>
         <button id="refresh" class="btn btn-secondary btn-sm"><span class="fa fa-refresh"></span> Refresh</button>
       </div>
     </div>
@@ -42,7 +42,24 @@
 
     <!-- model -->
     <div id="divModel" style="display: none;">
-      <a id="bbsModel" href="#" class="artical list-group-item list-group-item-action" style="display: none;">
+      <div id="newsModel" href="#" class="artical list-group-item list-group-item-action d-flex p-0" style="display: none; height: 80px;">
+        <div class="col-4 p-0" style="overflow: hidden;">
+          <img id="newsImg" class="mh-100 d-flex align-items-center" style="" src=""></img>
+        </div>
+        <div class="col-8 m-1 justify-content-between">
+          <div class="d-flex w-100 justify-content-between align-top">
+            <small class="title">Title</small>
+          </div>
+          <div>
+            <small class="text-muted d-flex justify-content-between">
+              <small class="date text-muted"></small>
+              <span class="click_num badge badge-outline-light badge-pill fa fa-eye" aria-hidden="true"> 99999</span>
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div id="bbsModel" href="#" class="artical list-group-item list-group-item-action" style="display: none;">
         <div class="d-flex w-100 justify-content-between">
           <h6 class="title mb-1">Title</h6>
         </div>
@@ -56,10 +73,13 @@
             <span class="username"></span>
           </div>
           <small class="modify_at text-muted"></small>
-          <span class="comment_num badge badge-info badge-pill">99</span>
+          <div>
+            <span class="link_award_num badge badge-info badge-pill fa fa-thumbs-o-up" aria-hidden="true"> 99</span>
+            <span class="comment_num badge badge-info badge-pill fa fa-comment-o" aria-hidden="true"> 99</span>
+          </div>
         </small>
-      </a>
+      </div>
     </div>
-    <iframe id="artframe" width="320" height="500" src="" style="display: none;"></iframe>
+    <iframe id="artframe" width="330" height="500" src="" style="display: none;"></iframe>
   </body>
 </html>

@@ -19,19 +19,23 @@
     <div id="header" class="container-fluid">
       <h1 class="col-sm" style="display: none;">Max+</h1>
       <div id="pageselector" class="btn-group btn-group-toggle col-sm m-1" data-toggle="buttons">
-        <label class="btn btn-outline-secondary btn-sm col-sm active">
-          <input type="radio" name="options" id="option1" autocomplete="off" value="news" checked> News
+        <label class="btn btn-outline-secondary btn-sm col-sm">
+          <input type="radio" name="options" id="option1" autocomplete="off" value="news"> News
         </label>
         <label class="btn btn-outline-secondary btn-sm col-sm">
           <input type="radio" name="options" id="option2" autocomplete="off" value="rpg"> RPG
         </label>
-        <label class="btn btn-outline-secondary btn-sm col-sm">
-          <input type="radio" name="options" id="option3" autocomplete="off" value="bbs"> BBS
+        <label class="btn btn-outline-secondary btn-sm col-sm active">
+          <input type="radio" name="options" id="option3" autocomplete="off" value="bbs" checked> BBS
         </label>
       </div>
       <div class="col-sm mb-1">
         <button id="back" class="btn btn-secondary btn-sm"><span class="glyphicon glyphicon-refresh">← Back</span></button>
         <button id="refresh" class="btn btn-secondary btn-sm"><span class="fa fa-refresh"></span> Refresh</button>
+        <div class="custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input" id="listModelSwitch">
+          <label class="custom-control-label" for="listModelSwitch">enable smart model</label>
+        </div>
       </div>
     </div>
 
@@ -59,7 +63,7 @@
         </div>
       </div>
 
-      <div id="bbsModel" href="#" class="artical list-group-item list-group-item-action" style="display: none;">
+      <div id="bbsModel" class="artical list-group-item list-group-item-action" style="display: none;">
         <div class="d-flex w-100 justify-content-between">
           <h6 class="title mb-1">Title</h6>
         </div>
@@ -80,6 +84,9 @@
         </small>
       </div>
     </div>
-    <iframe id="artframe" width="330" height="500" src="" style="display: none;"></iframe>
+    <!-- view -->
+    <div id="bbsView" style="display: none;">
+    </div>
+    <iframe id="artframe" frameborder="0" max-width="600" height="500" src="" style="display: none;"></iframe>
   </body>
 </html>

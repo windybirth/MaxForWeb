@@ -18,6 +18,13 @@ $(function(){
   $('#pageselector input[type=radio]').change( function() {
     init();
   });
+  
+  // iFrame
+  $(window).resize(function() {
+    w = $(window).width() - 10;
+    $('#artframe').css('min-width', w + 'px');
+  });
+  $(window).resize();
 });
 
 function init(){
@@ -43,7 +50,7 @@ function createArtList(){
   } else if(radioVal === 'rpg') {
     var path = '/maxnews/app/news/with/topics/authors';
     var url = fqdn + path;
-    var urlParamData = { tag: "rpg", game_type: "dota2", offset: "0" , limit: "20" };
+    var urlParamData = { tag: "rpg", game_type: "dota2", offset: "0" , limit: "10" };
     $.getJSON(url, urlParamData, callbackNews);
   } else if(radioVal === 'bbs') {
     var path = '/bbs/app/link/list';
@@ -55,6 +62,7 @@ function createArtList(){
   }
 }
 
+// ---- bbs list ----
 function callbackbbsList(data) {
   var items = [];
   //parse json data
@@ -66,7 +74,7 @@ function callbackbbsList(data) {
       addBBSItem(key, val);
     }
   });
-  addListenerToArtical();
+  addListenerToArticalSwicth();
 }
 
 function addBBSItem(key, item) {
@@ -98,6 +106,11 @@ function addBBSItem(key, item) {
   $('#artlist').append(articalItem);
 }
 
+function onBBSItemClick(item) {
+  debugger;
+}
+
+// ---- news$rpg list ----
 // call back for news and rpg
 function callbackNews(data) {
   var items = [];
@@ -157,6 +170,18 @@ function addListenerToArtical(){
   });
 }
 
+function addListenerToArticalSwicth(){
+  $('.artical').on('click', function(){
+    if($('#listModelSwitch').is(":checked")) {
+      
+    } else {
+      url = $(this).prop('href');
+      $('#artframe').prop('src', url);
+      switchToFrame();
+    }
+    
+  });
+}
 
 // switch method
 function switchToFrame() {
